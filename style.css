@@ -53,7 +53,7 @@ nav {
 }
 
 .nav-logo img {
-  height: 40px;
+  height: 68px;
   width: auto;
 }
 
@@ -772,7 +772,7 @@ section { padding: 100px 5%; }
 
 .contact-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
   padding: 1.25rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.07);
@@ -999,6 +999,7 @@ footer {
 .office-address {
   display: flex;
   gap: 12px;
+  align-items: center;
 }
 
 .office-address svg {
@@ -1008,7 +1009,12 @@ footer {
   fill: none;
   stroke-width: 1.5;
   flex-shrink: 0;
-  margin-top: 2px;
+}
+
+.office-contact {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
 .office-address span {
@@ -1600,4 +1606,29 @@ footer {
   .partners-section {
     padding: 60px 0;
   }
+}
+/* ── Google Directions Button ─────────────────────────────────────────────── */
+.office-directions-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--blue-600, #2563eb);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.15s;
+}
+.office-directions-btn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.office-directions-btn:hover {
+  background: var(--blue-700, #1d4ed8);
+  transform: translateY(-1px);
 }

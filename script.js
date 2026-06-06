@@ -4,12 +4,32 @@ function toggleMenu() {
 }
 
 function handleSubmit(btn) {
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = '✓ Message Sent';
-    btn.style.background = '#0F6E56';
-  }, 1500);
+  const box = btn.closest('.contact-form-box');
+  const inputs = box.querySelectorAll('input, select, textarea');
+
+  const name     = inputs[0].value.trim();
+  const company  = inputs[1].value.trim();
+  const email    = inputs[2].value.trim();
+  const solution = inputs[3].value;
+  const message  = inputs[4].value.trim();
+
+  if (!name || !email || !message) {
+    alert('Please fill in your name, email, and message.');
+    return;
+  }
+
+  const subject = encodeURIComponent(
+    `Enquiry from ${name}${company ? ' – ' + company : ''}`
+  );
+  const body = encodeURIComponent(
+    `Name: ${name}\n` +
+    `Company: ${company || '—'}\n` +
+    `Email: ${email}\n` +
+    `Solution Area: ${solution || '—'}\n\n` +
+    `Message:\n${message}`
+  );
+
+  window.location.href = `mailto:sales@plutusventures.in?subject=${subject}&body=${body}`;
 }
 
 const sections = document.querySelectorAll('section[id]');
